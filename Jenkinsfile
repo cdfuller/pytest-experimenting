@@ -13,7 +13,7 @@ node {
         app.inside {
             // echo 'Tests passed'
             // sh 'pytest'
-            sh 'pytest --junitxml=results.xml --cov=. --cov-report xml --cov-config .coveragerc'
+            sh 'pytest --junitxml=results.xml'
         }
     }
 }
