@@ -11,8 +11,9 @@ node {
 
     stage('Test image') {
         app.inside {
-            sh 'pytest'
             // echo 'Tests passed'
+            // sh 'pytest'
+            sh 'pytest --junitxml=results.xml --cov=. --cov-report xml --cov-config .coveragerc'
         }
     }
 }
