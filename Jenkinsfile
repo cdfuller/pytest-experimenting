@@ -11,8 +11,8 @@ node {
 
     stage('Test image') {
         app.inside {
-            // sh 'pytest'
-            echo 'Tests passed'
+            sh 'pytest'
+            // echo 'Tests passed'
         }
     }
 }
