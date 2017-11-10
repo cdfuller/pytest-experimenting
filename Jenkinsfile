@@ -1,7 +1,7 @@
 #!/usr/bin/env groovy
 
 pipeline {
-    def app
+    agent { dockerfile true }
 
     stage('Clone repository') {
         steps {
