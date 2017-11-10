@@ -16,4 +16,8 @@ node {
             sh 'pytest --junitxml=results.xml'
         }
     }
+    
+    stage("Collect test results") {
+        junit 'results.xml'
+    }
 }
