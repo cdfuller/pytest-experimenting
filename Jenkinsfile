@@ -1,4 +1,6 @@
-node {
+#!/usr/bin/env groovy
+
+pipeline {
     def app
 
     stage('Clone repository') {
