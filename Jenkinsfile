@@ -17,7 +17,9 @@ node {
         }
     }
     
-    stage("Collect test results") {
-        junit 'results.xml'
+    post {
+        always {
+            junit 'results.xml'
+        }
     }
 }
