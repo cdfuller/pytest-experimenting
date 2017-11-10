@@ -5,6 +5,7 @@ def inc(x):
 
 def test_answer():
     assert inc(3) == 4
+    # assert inc(3) == 3
 
 def test_modulo():
     a = 24
