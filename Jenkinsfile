@@ -9,19 +9,15 @@ pipeline {
         }
     }
 
-    stage('Build image') {
-        steps {
-            app = docker.build('pytesting')
-        }
-    }
+    // stage('Build image') {
+    //     steps {
+    //         app = docker.build('pytesting')
+    //     }
+    // }
 
     stage('Test image') {
         steps {
-            app.inside {
-                // echo 'Tests passed'
-                // sh 'pytest'
-                sh 'pytest --junitxml=results.xml'
-            }
+            sh 'pytest --junitxml=results.xml'
         }
     }
     
