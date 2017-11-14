@@ -3,17 +3,6 @@
 pipeline {
     agent { dockerfile true }
 
-    // stage('Clone repository') {
-    //     steps {
-    //         checkout scm
-    //     }
-    // }
-
-    // stage('Build image') {
-    //     steps {
-    //         app = docker.build('pytesting')
-    //     }
-    // }
     stages {
         stage('Test image') {
             steps {
