@@ -7,12 +7,12 @@ pipeline {
       parallel {
         stage('Test image') {
           steps {
-            sh 'pytest --junitxml=results.xml'
+            sh 'pytest --junitxml=unit.xml unit'
           }
         }
-        stage('') {
+        stage('Integration') {
           steps {
-            sh 'pytest --junitxml=results.xml integration'
+            sh 'pytest --junitxml=integration.xml integration'
           }
         }
       }
@@ -23,9 +23,8 @@ pipeline {
   }
   post {
     always {
-      junit 'results.xml'
-      
+      junit 'unit.xml'
+      junit 'integration.xml'
     }
-    
   }
 }
