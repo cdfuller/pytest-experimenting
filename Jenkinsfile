@@ -5,7 +5,7 @@ pipeline {
   stages {
     stage('Test image') {
       parallel {
-        stage('Test image') {
+        stage('Unit') {
           steps {
             sh 'pytest --junitxml=unit.xml unit'
           }
