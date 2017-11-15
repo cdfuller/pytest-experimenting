@@ -12,4 +12,4 @@ def multiply(a, b):
     >>> multiply('a', 3)
     'aaa'
     """
-    return a * b * 2
+    return a * b
