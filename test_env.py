@@ -1,5 +1,5 @@
 import pytest
 import os
 
-def env():
+def test_env():
     assert os.environ["TEST_ENV"] == "Mars"
