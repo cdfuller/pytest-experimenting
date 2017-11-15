@@ -3,6 +3,10 @@
 pipeline {
     agent { dockerfile true }
 
+    environment {
+        TEST_ENV = 'Mars'
+    }
+
     stages {
         stage('Test image') {
             steps {
