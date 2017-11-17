@@ -1,23 +1,30 @@
-#!/usr/bin/env groovy
-
 pipeline {
-    agent { dockerfile true }
-
-    environment {
-        TEST_ENV = 'Mars'
-    }
-
-    stages {
-        stage('Test image') {
-            steps {
-                sh 'pytest --junitxml=results.xml'
-            }
+  agent {
+    dockerfile true
+  }
+  stages {
+    stage('Test image') {
+      parallel {
+        stage('Unit') {
+          steps {
+            sh 'pytest --junitxml=unit.xml unit'
+          }
         }
-    }
-    
-    post {
-        always {
-            junit 'results.xml'
+        stage('Integration') {
+          steps {
+            sh 'pytest --junitxml=integration.xml integration'
+          }
         }
+      }
     }
+  }
+  environment {
+    TEST_ENV = 'Mars'
+  }
+  post {
+    always {
+      junit 'unit.xml'
+      junit 'integration.xml'
+    }
+  }
 }
