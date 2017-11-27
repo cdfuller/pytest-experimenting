@@ -17,9 +17,9 @@ pipeline {
         }
         stage('INFO') {
           steps {
+            sh 'python --version'
             sh 'pwd'
             sh 'ls -al'
-            sh 'python --version'
           }
         }
       }
