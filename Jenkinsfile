@@ -1,36 +1,12 @@
 pipeline {
   agent {
-    dockerfile true
+    docker { image golang:1.9 }
   }
   stages {
     stage('Test image') {
-      parallel {
-        stage('Unit') {
-          steps {
-            sh 'pytest --junitxml=unit.xml unit'
-          }
-        }
-        stage('Integration') {
-          steps {
-            sh 'pytest --junitxml=integration.xml integration'
-          }
-        }
-        stage('INFO') {
-          steps {
-            sh 'pwd'
-            sh 'ls'
-          }
-        }
+      steps {
+        sh 'go version'
       }
-    }
-  }
-  environment {
-    TEST_ENV = 'Mars'
-  }
-  post {
-    always {
-      junit 'unit.xml'
-      junit 'integration.xml'
     }
   }
 }
