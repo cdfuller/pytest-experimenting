@@ -18,7 +18,7 @@ pipeline {
         stage('INFO') {
           steps {
             sh 'pwd'
-            sh 'ls'
+            sh 'ls -al'
           }
         }
       }
