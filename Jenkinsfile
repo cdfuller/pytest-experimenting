@@ -20,6 +20,7 @@ pipeline {
             sh 'python --version'
             sh 'pwd'
             sh 'ls -al'
+            docker version
           }
         }
       }
