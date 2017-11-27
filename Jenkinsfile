@@ -15,9 +15,10 @@ pipeline {
             sh 'pytest --junitxml=integration.xml integration'
           }
         }
-        stage('PWD') {
+        stage('INFO') {
           steps {
             sh 'pwd'
+            sh 'ls'
           }
         }
       }
