@@ -46,7 +46,9 @@ node {
   
   stage("Test") {
     app.inside(){
-      sh 'python --version'
+      dir("/app") {
+        sh 'pwd && ls -al'
+      }
     }
   }
 }
