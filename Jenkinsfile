@@ -46,9 +46,8 @@ node {
   
   stage("Test") {
     app.inside(){
-      dir("/app") {
-        sh 'pwd && ls -al'
-      }
+      sh 'pwd && ls -al'
+      // sh 'pwd && ls -al'
     }
   }
 }
